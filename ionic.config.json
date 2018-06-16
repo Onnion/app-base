@@ -1,0 +1,8 @@
+{
+  "name": "app-tia-teia",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
