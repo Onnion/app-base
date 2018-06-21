@@ -1,0 +1,69 @@
+<ion-content padding>
+
+  <div class="list">
+
+    <ion-card *ngFor="let order of orders" (click)="toView($event, order)">
+      <ion-card-content>
+
+        <ion-chip swipeBackEnabled="true" swipe-back-enabled="true">
+          <ion-avatar>
+            <ion-icon name="cash"></ion-icon>
+          </ion-avatar>
+          <ion-label>{{order.price | formatPrice}}</ion-label>
+        </ion-chip>
+
+        <ion-chip *ngIf="order.type == 0" swipeBackEnabled="true" swipe-back-enabled="true">
+            <ion-avatar>
+              <ion-icon [name]="defineIcon(order)"></ion-icon>
+            </ion-avatar>
+            <ion-label>{{order.kit.name}}</ion-label>
+          </ion-chip>
+
+        <ion-card-title>
+          {{order.title | formatName}}
+        </ion-card-title>
+        <p style="font-weight: 900">
+          {{order.phone}}
+        </p>
+        <ion-chip [style.color]="defineColorChip(order, 'date')" [style.background-color]="defineBackgroundChip(order, 'date')" menuToggle swipeBackEnabled="true" swipe-back-enabled="true">
+          <ion-avatar>
+            <ion-icon name="calendar"></ion-icon>
+          </ion-avatar>
+          <ion-label>{{order.date | formatDate}}</ion-label>
+        </ion-chip>
+
+        <ion-chip [style.color]="defineColorChip(order, 'hour')" [style.background-color]="defineBackgroundChip(order, 'hour')" menuToggle swipeBackEnabled="true" swipe-back-enabled="true">
+          <ion-avatar>
+            <ion-icon name="alarm"></ion-icon>
+          </ion-avatar>
+          <ion-label>{{order.date | formatHours}}</ion-label>
+        </ion-chip>
+
+
+      </ion-card-content>
+
+      <div class="background1"></div>
+      <div class="background2"></div>
+    </ion-card>
+  </div>
+
+
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="success">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="toForm(0)">
+        <ion-icon name="basket"></ion-icon>
+        <div class="label" dir="rtl">Kit</div>
+      </button>
+      <button ion-fab (click)="toForm(1)">
+        <ion-icon name="cart"></ion-icon>
+        <div class="label" dir="rtl">Avulsos</div>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

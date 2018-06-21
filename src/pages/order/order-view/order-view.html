@@ -1,0 +1,63 @@
+<ion-content padding>
+  
+  <div class="background"></div>
+
+  <ion-icon (click)="backPress()" name="arrow-dropleft" class="back-icon" md="ios-arrow-dropleft"> VOLTAR</ion-icon>
+
+  <div class="card-view" *ngIf="order">
+
+    <div class="card-icon">
+      <ion-icon name="person"></ion-icon>
+    </div>
+
+    <form>
+      <ion-item>
+        <ion-label color="primary">  
+          <ion-icon name="person"></ion-icon>
+        </ion-label>
+        <ion-input [value]="order.title | formatName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">
+          <ion-icon name="phone-portrait"></ion-icon>
+        </ion-label>
+        <ion-input [value]="order.phone"></ion-input>
+      </ion-item>
+
+    </form>
+
+  </div>
+
+  <div class="card-view" *ngIf="order">
+
+      <div class="card-icon">
+        <ion-icon [name]="defineIcon(order)"></ion-icon>
+      </div>
+  
+  
+      <form>
+        <ion-item>
+          <ion-label color="primary">  
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input [value]="order.title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Floating Label</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Floating Label</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Floating Label</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+  
+      </form>
+    </div>
+  
+
+
+</ion-content>
